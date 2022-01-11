@@ -1,0 +1,39 @@
+﻿@model IEnumerable<scapfolding.Models.Student>
+
+@{
+    ViewBag.Title = "Index";
+
+            }
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create");
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Roll)
+        </th>
+        <th></th>
+    </tr>
+    @foreach ( var sobj in Model)
+            {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => sobj.Name)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => sobj.Roll)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = sobj.ID });
+        @Html.ActionLink("Details", "Details", new { id = sobj.ID });
+        @Html.ActionLink("Delete", "Delete", new { id = sobj.ID });
+    </td>
+</tr>
+            }
+
+</table>
